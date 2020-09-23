@@ -16,23 +16,21 @@ class AppTheme {
     primaryColor: AppColor.THEME_COLOR,
     canvasColor: AppColor.THEME_COLOR,
     ///文字主题
-    textTheme: TextTheme(
-      bodyText1: TextStyle(fontSize: 30),
-    ),
+    textTheme: _textTheme,
     platform: TargetPlatform.iOS,
   );
 
 
   static final TextTheme _textTheme = TextTheme(
-    headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
-    caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-    headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
-    overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-    headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
-    button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+    headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0, color: Colors.white),
+    caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0, color: Colors.white),
+    headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0, color: Colors.white),
+    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0, color: Colors.white),
+    overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0, color: Colors.white),
+    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0, color: Colors.white),
+    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0, color: Colors.white),
+    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0, color: Colors.white),
+    headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0, color: Colors.white),
+    button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0, color: Colors.white),
   );
 }

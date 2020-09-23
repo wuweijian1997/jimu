@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'JiMu',
+      initialRoute: AppRoutes.INITIAL_ROUTE,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: AppRoutes.configRoutes,
     );
   }
 }
