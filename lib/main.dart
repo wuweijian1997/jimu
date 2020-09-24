@@ -3,7 +3,13 @@ import 'package:jimu/common/index.dart';
 import 'package:jimu/routes.dart';
 
 void main() {
+  init();
   runApp(MyApp());
+}
+
+///初始化
+void init() {
+  SizeFit.init();
 }
 
 class MyApp extends StatelessWidget {
