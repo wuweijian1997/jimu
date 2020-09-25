@@ -41,25 +41,53 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                Container(
-                    width: double.infinity,
-                    height: 50,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: ShaderMask(
-                      blendMode: BlendMode.srcOut,
-                      shaderCallback: (bounds) {
-                        return LinearGradient(
-                          colors: [Colors.black, Colors.black],
-                        ).createShader(bounds);
-                      },
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: ShaderMask(
+                    blendMode: BlendMode.srcOut,
+                    shaderCallback: (bounds) {
+                      return LinearGradient(
+                        colors: [Colors.black, Colors.black],
+                      ).createShader(bounds);
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      color: Colors.transparent,
+                      alignment: Alignment.center,
                       child: Text(
                         'Hello World',
-                        style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                        style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
+                ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                      colors: [Colors.red, Colors.blue],
+                    ).createShader(bounds);
+                  },
+                  child: Text(
+                    'Hello World',
+                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
+                  ),
+                ),
+                ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                      colors: [Colors.red, Colors.blue],
+                      tileMode: TileMode.repeated,
+                      stops: [0, 1]
+                    ).createShader(bounds);
+                  },
+                  child: Text(
+                    'Hello Worldasdfasdfasdfasdfasdfasdfasdfasdfasdfafasdfasdfasdfasfasadasd',
+                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
+                  ),
+                ),
               ],
             ),
           ),
