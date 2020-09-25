@@ -41,7 +41,7 @@ generate(Directory directory, StringBuffer result, List<String> nameList) {
       fileName = fileName.replaceAll('-', '_');
 
       if (fileName.isNotEmpty && !dirOrFile.path.contains('DS_Store') && !nameList.contains(fileName)) {
-        result.write('\tstatic const $fileName = \'${dirOrFile.path.replaceAll('\\', '/')}\';\n');
+        result.write('\tstatic const $fileName = \'${dirOrFile.path.replaceAll('\\', '/').split('./').last}\';\n');
         nameList.add(fileName);
       }
     } else if (dirOrFile is Directory) {

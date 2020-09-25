@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
-import 'package:jimu/routes.dart';
 
 void main() {
   init();

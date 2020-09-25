@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/pages/index.dart';
 
+///启动页
 class StartupScreenPage extends StatefulWidget {
   static const String rName = 'StartupScreenPage';
 
@@ -10,7 +12,19 @@ class StartupScreenPage extends StatefulWidget {
 }
 
 class _StartupScreenPageState extends State<StartupScreenPage> {
+  @override
+  void initState() {
+    super.initState();
+    this.init();
+  }
 
+  ///初始化操作,检查登录信息或更新信息等.
+  void init() async {
+    String token = await StorageUtil.get(StorageKeys.TOKEN);
+    if(token == null || token.isEmpty) {
+      Navigator.of(context).pushNamed(LoginPage.rName);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
