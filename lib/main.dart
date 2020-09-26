@@ -8,7 +8,6 @@ void main() {
 
 ///初始化
 void init() {
-  SizeFit.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'JiMu',
+      navigatorKey: NavigatorUtil.navigatorKey,
       initialRoute: AppRoutes.INITIAL_ROUTE,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,

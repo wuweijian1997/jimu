@@ -12,85 +12,7 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         children: [
           const _LoginVideoBg(),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: AnimationList(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(
-                  Assets.icon_splash_content,
-                  width: 160.dp,
-                  height: 100.dp,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'FIND|CONNECT|DATE|YOUTH CULTURE',
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  'Focus on youth social network',
-                  style: Theme.of(context).textTheme.overline,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: ShaderMask(
-                    blendMode: BlendMode.srcOut,
-                    shaderCallback: (bounds) {
-                      return LinearGradient(
-                        colors: [Colors.black, Colors.black],
-                      ).createShader(bounds);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 50,
-                      color: Colors.transparent,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Hello World',
-                        style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
-                      ),
-                    ),
-                  ),
-                ),
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (bounds) {
-                    return LinearGradient(
-                      colors: [Colors.red, Colors.blue],
-                    ).createShader(bounds);
-                  },
-                  child: Text(
-                    'Hello World',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
-                  ),
-                ),
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (bounds) {
-                    return LinearGradient(
-                      colors: [Colors.red, Colors.blue],
-                      tileMode: TileMode.repeated,
-                      stops: [0, 1]
-                    ).createShader(bounds);
-                  },
-                  child: Text(
-                    'Hello Worldasdfasdfasdfasdfasdfasdfasdfasdfasdfafasdfasdfasdfasfasadasd',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white,),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const _LoginContent(),
         ],
       ),
     );
@@ -122,5 +44,93 @@ class _LoginVideoBgState extends State<_LoginVideoBg> {
   @override
   Widget build(BuildContext context) {
     return VideoPlayer(_videoController);
+  }
+}
+
+class _LoginContent extends StatelessWidget {
+  const _LoginContent({Key key}) :super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Color bgColor = Colors.black;
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: AnimationList(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            Assets.icon_splash_content,
+            height: 50,
+            color: Colors.white,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'FIND|CONNECT|DATE|YOUTH CULTURE',
+            style: Theme
+                .of(context)
+                .textTheme
+                .bodyText2,
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            'Focus on youth social network',
+            style: Theme
+                .of(context)
+                .textTheme
+                .overline,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          StatefulBuilder(
+              builder: (_, setState) {
+                return GestureDetector(
+                  onPanUpdate: (detail) {},
+                  onPanStart: (_) {
+                    setState.call(() {
+                      bgColor = Colors.white;
+                    });
+                  },
+                  onPanEnd: (_) {
+                    setState.call(() {
+                      bgColor = Colors.black;
+                    });
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: ShaderMask(
+                      blendMode: BlendMode.srcOut,
+                      shaderCallback: (bounds) {
+                        return LinearGradient(
+                          colors: [bgColor, bgColor],
+                        ).createShader(bounds);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        color: Colors.transparent,
+                        alignment: Alignment.center,
+                        child: Text(
+                          '开始积目',
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .headline4
+                              .copyWith(color: Colors.white,),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
+          ),
+        ],
+      ),
+    );
   }
 }

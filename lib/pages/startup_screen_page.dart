@@ -22,8 +22,14 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
   void init() async {
     String token = await StorageUtil.get(StorageKeys.TOKEN);
     if(token == null || token.isEmpty) {
-      Navigator.of(context).pushNamed(LoginPage.rName);
+      delayed(() {
+        NavigatorUtil.pushAndRemoveUntilTransitions(LoginPage.rName);
+      });
     }
+  }
+
+  delayed(VoidCallback callback) {
+    Future.delayed(Duration(milliseconds: 1000), () => callback?.call());
   }
 
   @override
@@ -36,23 +42,22 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
             child: Center(
                 child: Image.asset(
               Assets.icon_splash_content,
-              width: 200.dp,
-              height: 120.dp,
+              height: 70,
             )),
           ),
           Text(
             'FOCUS ON YOUTH SOCIAL NETWORK',
             style: Theme.of(context).textTheme.headline6.copyWith(color: const Color(0xff000000)),
           ),
-          SizedBox(
-            height: 10.dp,
+          const SizedBox(
+            height: 5,
           ),
           Text(
             'FIND|CONNECT|DATE|YOUTH CULTURE',
-            style: Theme.of(context).textTheme.overline.copyWith(color: Colors.white.withOpacity(0.5)),
+            style: Theme.of(context).textTheme.overline.copyWith(color: Colors.white.withOpacity(0.8)),
           ),
-          SizedBox(
-            height: 60.dp,
+          const SizedBox(
+            height: 30,
           )
         ],
       ),
