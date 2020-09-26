@@ -48,13 +48,13 @@ class _LoginVideoBgState extends State<_LoginVideoBg> {
 }
 
 class _LoginContent extends StatelessWidget {
-  const _LoginContent({Key key}) :super(key: key);
+  const _LoginContent({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Color bgColor = Colors.black;
     return Padding(
-      padding: const EdgeInsets.all(30.0),
+      padding: const EdgeInsets.only(bottom: 30.0, left: 30),
       child: AnimationList(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,66 +69,56 @@ class _LoginContent extends StatelessWidget {
           ),
           Text(
             'FIND|CONNECT|DATE|YOUTH CULTURE',
-            style: Theme
-                .of(context)
-                .textTheme
-                .bodyText2,
+            style: Theme.of(context).textTheme.bodyText2,
           ),
           const SizedBox(
             height: 5,
           ),
           Text(
             'Focus on youth social network',
-            style: Theme
-                .of(context)
-                .textTheme
-                .overline,
+            style: Theme.of(context).textTheme.overline,
           ),
           const SizedBox(
             height: 30,
           ),
-          StatefulBuilder(
-              builder: (_, setState) {
-                return GestureDetector(
-                  onPanUpdate: (detail) {},
-                  onPanStart: (_) {
-                    setState.call(() {
-                      bgColor = Colors.white;
-                    });
+          StatefulBuilder(builder: (_, setState) {
+            return GestureDetector(
+              onPanUpdate: (detail) {},
+              onPanStart: (_) {
+                setState.call(() {
+                  bgColor = Colors.white;
+                });
+              },
+              onPanEnd: (_) {
+                setState.call(() {
+                  bgColor = Colors.black;
+                });
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: ShaderMask(
+                  blendMode: BlendMode.srcOut,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                      colors: [bgColor, bgColor],
+                    ).createShader(bounds);
                   },
-                  onPanEnd: (_) {
-                    setState.call(() {
-                      bgColor = Colors.black;
-                    });
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(25),
-                    child: ShaderMask(
-                      blendMode: BlendMode.srcOut,
-                      shaderCallback: (bounds) {
-                        return LinearGradient(
-                          colors: [bgColor, bgColor],
-                        ).createShader(bounds);
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 50,
-                        color: Colors.transparent,
-                        alignment: Alignment.center,
-                        child: Text(
-                          '开始积目',
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .headline4
-                              .copyWith(color: Colors.white,),
-                        ),
-                      ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    color: Colors.transparent,
+                    alignment: Alignment.center,
+                    child: Text(
+                      '开始积目',
+                      style: Theme.of(context).textTheme.headline4.copyWith(
+                            color: Colors.white,
+                          ),
                     ),
                   ),
-                );
-              }
-          ),
+                ),
+              ),
+            );
+          }),
         ],
       ),
     );

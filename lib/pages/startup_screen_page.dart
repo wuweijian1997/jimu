@@ -34,32 +34,35 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: Center(
-                child: Image.asset(
-              Assets.icon_splash_content,
-              height: 70,
-            )),
-          ),
-          Text(
-            'FOCUS ON YOUTH SOCIAL NETWORK',
-            style: Theme.of(context).textTheme.headline6.copyWith(color: const Color(0xff000000)),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            'FIND|CONNECT|DATE|YOUTH CULTURE',
-            style: Theme.of(context).textTheme.overline.copyWith(color: Colors.white.withOpacity(0.8)),
-          ),
-          const SizedBox(
-            height: 30,
-          )
-        ],
+      body: MediaQuery.removePadding(
+        removeTop: true,
+        context: context,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                  child: Image.asset(
+                Assets.icon_splash_content,
+                height: 70,
+              )),
+            ),
+            Text(
+              'FOCUS ON YOUTH SOCIAL NETWORK',
+              style: Theme.of(context).textTheme.headline6.copyWith(color: const Color(0xff000000)),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              'FIND|CONNECT|DATE|YOUTH CULTURE',
+              style: Theme.of(context).textTheme.overline.copyWith(color: Colors.white.withOpacity(0.8)),
+            ),
+            const SizedBox(
+              height: 30,
+            )
+          ],
+        ),
       ),
     );
   }

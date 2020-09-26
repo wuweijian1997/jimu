@@ -18,6 +18,7 @@ class AppTheme {
     ///文字主题
     textTheme: _textTheme,
     platform: TargetPlatform.iOS,
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
   );
 
 
