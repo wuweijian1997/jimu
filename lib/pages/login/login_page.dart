@@ -55,9 +55,19 @@ class _LoginContent extends StatelessWidget {
     Color bgColor = Colors.black;
     return Padding(
       padding: const EdgeInsets.only(bottom: 30.0, left: 30),
-      child: AnimationList(
+      child: AnimationFlex(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
+        animationWidgetBuilder: (Animation animation, Widget child) {
+          return Opacity(
+            opacity: animation.value,
+            child: Transform(
+              transform:
+              Matrix4.translationValues(10 * (1.0 - animation.value), 10 * (1.0 - animation.value), 0.0),
+              child: child,
+            ),
+          );
+        },
         children: [
           Image.asset(
             Assets.icon_splash_content,
