@@ -8,9 +8,9 @@ class StorageUtil {
     _sharedPreferences.setString(key, value);
   }
 
-  static Future<T> get<T>(String key) async {
+  static Future<String> get(String key) async {
     await _init();
-    return _sharedPreferences.get(key) as T;
+    return _sharedPreferences.get(key);
   }
 
   static _init() async {
