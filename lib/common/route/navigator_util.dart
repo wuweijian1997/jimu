@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
 
@@ -20,7 +21,7 @@ class NavigatorUtil {
         arguments: arguments);
   }
 
-  static pushAndRemoveUntilTransitions(String routeName,
+  static transitionsPushAndRemoveUntil(String routeName,
       {Duration duration = const Duration(milliseconds: 1000),
       RouteTransitionsBuilder routeTransitionsBuilder =
           _defaultTransitionsBuilder}) {
@@ -38,11 +39,15 @@ class NavigatorUtil {
         (Route<dynamic> route) => false);
   }
 
-  static pushName(String routeName, {Object arguments}) {
-    return Navigator.of(context).pushNamed(routeName, arguments: arguments);
+  static pushName(String routeName, {WidgetBuilder builder, Object arguments, bool fullscreenDialog}) {
+    return Navigator.of(context).push(CupertinoPageRoute(
+      builder: builder ?? AppRoutes.configRoutes[routeName],
+      settings: RouteSettings(name: routeName),
+      fullscreenDialog: fullscreenDialog ?? false,
+    ));
   }
 
-  static pushTransitions(String routeName,
+  static transitionsPush(String routeName,
       {Duration duration = const Duration(milliseconds: 1000),
       RouteTransitionsBuilder routeTransitionsBuilder =
           _defaultTransitionsBuilder}) {

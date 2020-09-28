@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:jimu/common/index.dart';
 import 'package:jimu/pages/index.dart';
 
@@ -23,7 +22,7 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
     String token = await StorageUtil.get(StorageKeys.TOKEN);
     if(token == null || token.isEmpty) {
       delayed(() {
-        NavigatorUtil.pushAndRemoveUntilTransitions(LoginPage.rName);
+        NavigatorUtil.transitionsPushAndRemoveUntil(LoginPage.rName);
       });
     }
   }

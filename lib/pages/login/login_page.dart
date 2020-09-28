@@ -1,5 +1,7 @@
+import 'package:animated_flex/animated_flex.dart';
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/pages/index.dart';
 import 'package:jimu/widgets/index.dart';
 import 'package:video_player/video_player.dart';
 
@@ -55,19 +57,9 @@ class _LoginContent extends StatelessWidget {
     Color bgColor = Colors.black;
     return Padding(
       padding: const EdgeInsets.only(bottom: 30.0, left: 30),
-      child: AnimationFlex(
+      child: AnimatedFlex(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
-        animationWidgetBuilder: (Animation animation, Widget child) {
-          return Opacity(
-            opacity: animation.value,
-            child: Transform(
-              transform:
-              Matrix4.translationValues(10 * (1.0 - animation.value), 10 * (1.0 - animation.value), 0.0),
-              child: child,
-            ),
-          );
-        },
         children: [
           Image.asset(
             Assets.icon_splash_content,
@@ -103,6 +95,7 @@ class _LoginContent extends StatelessWidget {
                 setState.call(() {
                   bgColor = Colors.black;
                 });
+                NavigatorUtil.pushName(RegisterPage.rName);
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(25),

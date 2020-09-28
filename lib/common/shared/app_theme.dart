@@ -18,11 +18,14 @@ class AppTheme {
     ///文字主题
     textTheme: _textTheme,
     platform: TargetPlatform.iOS,
+    ///自定义appBar的主题
+    appBarTheme: AppBarTheme(elevation: 0),
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
   );
 
 
   static final TextTheme _textTheme = TextTheme(
+    headline1: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 28.0, color: Colors.white),
     headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0, color: Colors.white),
     caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0, color: Colors.white),
     headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0, color: Colors.white),
