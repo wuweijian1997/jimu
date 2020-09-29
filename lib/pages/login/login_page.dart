@@ -2,7 +2,6 @@ import 'package:animated_flex/animated_flex.dart';
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
 import 'package:jimu/pages/index.dart';
-import 'package:jimu/widgets/index.dart';
 import 'package:video_player/video_player.dart';
 
 class LoginPage extends StatelessWidget {

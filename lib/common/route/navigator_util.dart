@@ -22,7 +22,7 @@ class NavigatorUtil {
   }
 
   static transitionsPushAndRemoveUntil(String routeName,
-      {Duration duration,
+      {Duration duration = const Duration(milliseconds: 300),
       RouteTransitionsBuilder routeTransitionsBuilder =
           _defaultTransitionsBuilder}) {
     return Navigator.of(context).pushAndRemoveUntil(
@@ -40,7 +40,7 @@ class NavigatorUtil {
   }
 
   static pushName(String routeName,
-      {WidgetBuilder builder, Object arguments, bool fullscreenDialog}) {
+      {WidgetBuilder builder, Object arguments, bool fullscreenDialog = false}) {
     return Navigator.of(context).push(CupertinoPageRoute(
       builder: builder ?? AppRoutes.configRoutes[routeName],
       settings: RouteSettings(name: routeName),

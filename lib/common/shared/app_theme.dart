@@ -11,16 +11,21 @@ class AppTheme {
   static const _semiBold = FontWeight.w600;
   static const _bold = FontWeight.w700;
 
+  static const THEME_COLOR = const Color(0xFF1B1B1B);
+  static const WHITE = const Color(0xFFFFFFFF);
+  static const HINT_COLOR = const Color(0xFF4CAF50);
+
   static final ThemeData theme = ThemeData(
     ///主题色
-    primaryColor: AppColor.THEME_COLOR,
-    canvasColor: AppColor.THEME_COLOR,
+    primaryColor: THEME_COLOR,
+    canvasColor: THEME_COLOR,
     ///文字主题
     textTheme: _textTheme,
     platform: TargetPlatform.iOS,
     ///自定义appBar的主题
     appBarTheme: AppBarTheme(elevation: 0),
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
+    iconTheme: IconThemeData(color: Colors.white),
   );
 
 

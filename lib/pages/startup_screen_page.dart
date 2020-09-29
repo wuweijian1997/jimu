@@ -20,9 +20,10 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
   ///初始化操作,检查登录信息或更新信息等.
   void init() async {
     String token = await StorageUtil.get(StorageKeys.TOKEN);
-    if(token == null || token.isEmpty) {
+    if (token == null || token.isEmpty) {
       delayed(() {
-        NavigatorUtil.transitionsPushAndRemoveUntil(LoginPage.rName);
+        NavigatorUtil.transitionsPushAndRemoveUntil(LoginPage.rName,
+            duration: const Duration(milliseconds: 1000));
       });
     }
   }
@@ -48,14 +49,20 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
             ),
             Text(
               'FOCUS ON YOUTH SOCIAL NETWORK',
-              style: Theme.of(context).textTheme.headline6.copyWith(color: const Color(0xff000000)),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(color: const Color(0xff000000)),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
               'FIND|CONNECT|DATE|YOUTH CULTURE',
-              style: Theme.of(context).textTheme.overline.copyWith(color: Colors.white.withOpacity(0.8)),
+              style: Theme.of(context)
+                  .textTheme
+                  .overline
+                  .copyWith(color: Colors.white.withOpacity(0.8)),
             ),
             const SizedBox(
               height: 30,
