@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/widgets/index.dart';
 
 class JmPhoneNumberInput extends StatefulWidget {
   final TextEditingController controller;
@@ -46,12 +47,6 @@ class _JmPhoneNumberInputState extends State<JmPhoneNumberInput> {
 
   @override
   Widget build(BuildContext context) {
-    var border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
-        width: 2,
-      ),
-    );
     return TextField(
       controller: _editingController,
       style: Theme.of(context).textTheme.bodyText2,
@@ -64,8 +59,8 @@ class _JmPhoneNumberInputState extends State<JmPhoneNumberInput> {
       },
       decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-          focusedBorder: border,
-          enabledBorder: border,
+          focusedBorder: CommonWidget.inputBorder,
+          enabledBorder: CommonWidget.inputBorder,
           hintText: '请输入正确手机号',
           hintStyle: Theme.of(context)
               .textTheme
@@ -95,10 +90,7 @@ class _JmPhoneNumberInputState extends State<JmPhoneNumberInput> {
               offstage: _editingController.text.length == 0,
               child: GestureDetector(
                   onTap: onClearTextField,
-                  child: Icon(
-                    Icons.clear,
-                    color: Theme.of(context).iconTheme.color,
-                  )))),
+                  child: CommonWidget.inputClearIcon))),
       onSubmitted: onSubmit,
     );
   }

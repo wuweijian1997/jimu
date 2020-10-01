@@ -92,7 +92,7 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
                   height: 20,
                 ),
                 Text(
-                  '输入密码后请点击"开始JiMu"即刻进入积目世界!粗心的你如忘记密码,请点击右上角的"忘"重新设置~',
+                  '输入密码后请点击"开始积目"即刻进入积目世界!粗心的你如忘记密码,请点击右上角的"忘"重新设置~',
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1
@@ -109,35 +109,62 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
                       child: child,
                     );
                   },
-                  child: JmPhoneNumberInput(
-                    controller: _editingController,
-                    onSubmit: onSubmit,
-                  ),
+                  child: _PasswordInput(),
                 ),
               ],
             ),
-            JmButton(
+            JmLoginButton(
+              title: '开始积目',
               onClick: () => onSubmit(_editingController.text),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.arrow_drop_down, size: 36, color: Colors.white54),
-                  Text(
-                    '下一步',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        .copyWith(letterSpacing: 2, color: Colors.white54),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
-              ),
-            )
+            ),
+            SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _PasswordInput extends StatelessWidget {
+  final TextEditingController editingController;
+  final ValueChanged<String> onSubmit;
+
+  _PasswordInput({@required this.editingController, this.onSubmit});
+
+  onClearTextField() {
+    editingController.text = '';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: editingController,
+      style: Theme.of(context).textTheme.bodyText2,
+      autofocus: true,
+      maxLength: 16,
+      textInputAction: TextInputAction.next,
+      onEditingComplete: () {
+        print('onEditingComplete');
+      },
+      obscureText: true,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+          focusedBorder: CommonWidget.inputBorder,
+          enabledBorder: CommonWidget.inputBorder,
+          hintText: '输入密码,开始积目吧~',
+          hintStyle: Theme.of(context)
+              .textTheme
+              .bodyText2
+              .copyWith(color: Colors.white70),
+          counterText: '',
+          suffixIcon: Offstage(
+              offstage: editingController.text.length == 0,
+              child: GestureDetector(
+                  onTap: onClearTextField,
+                  child: CommonWidget.inputClearIcon))),
+      onSubmitted: onSubmit,
     );
   }
 }

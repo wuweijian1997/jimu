@@ -93,25 +93,13 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
                 ),
               ],
             ),
-            JmButton(
+            JmLoginButton(
+              title: '下一步',
               onClick: () => onSubmit(_editingController.text),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.arrow_drop_down, size: 36, color: Colors.white54),
-                  Text(
-                    '下一步',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        .copyWith(letterSpacing: 2, color: Colors.white54),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
-              ),
-            )
+            ),
+            SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),

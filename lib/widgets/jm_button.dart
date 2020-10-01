@@ -42,3 +42,33 @@ class _JmButtonState extends State<JmButton> {
     );
   }
 }
+
+class JmLoginButton extends StatelessWidget {
+  final String title;
+  final VoidCallback onClick;
+
+  JmLoginButton({@required this.title, this.onClick});
+
+  @override
+  Widget build(BuildContext context) {
+    return JmButton(
+        onClick: onClick,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.arrow_drop_down, size: 36, color: Colors.white54),
+            Text(
+              title,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(letterSpacing: 2, color: Colors.white54),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+          ],
+        )
+    );
+  }
+}
