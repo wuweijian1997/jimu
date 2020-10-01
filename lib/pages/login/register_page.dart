@@ -1,5 +1,6 @@
 import 'package:animated_flex/animated_flex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import 'package:jimu/widgets/index.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -13,19 +14,32 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
   TextEditingController _editingController;
   AnimationController _animationController;
 
+  final _spring = const SpringDescription(
+    ///质量
+    mass: 1,
+
+    ///刚性,滚动收尾速度
+    stiffness: 100,
+
+    ///阻尼,摩擦力
+    damping: 5,
+  );
+
   @override
   void initState() {
     super.initState();
     _editingController = TextEditingController(text: '');
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
-
+    _animationController = AnimationController(
+        value: 0, lowerBound: -50, upperBound: 50, vsync: this);
   }
 
-  onSubmit() {
-    if(_editingController.text.length == 11) {
+  onSubmit(String value) {
+    if(value.length == 11) {
       ///去下一个页面
     } else {
       ///提示错误
+      final simulation = SpringSimulation(_spring, 0, 0, 300);
+      _animationController.animateWith(simulation);
     }
   }
 
@@ -63,16 +77,20 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
                 AnimatedBuilder(
                   animation: _animationController,
                   builder: (BuildContext context, Widget child) {
-return child;
+                    return Transform.translate(
+                      offset: Offset(_animationController.value, 0),
+                      child: child,
+                    );
                   },
                   child: JmPhoneNumberInput(
                     controller: _editingController,
+                    onSubmit: onSubmit,
                   ),
                 ),
               ],
             ),
             JmButton(
-              onClick: onSubmit,
+              onClick: () => onSubmit(_editingController.text),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
