@@ -56,7 +56,7 @@ class _LoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     Color bgColor = Colors.black;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 30.0, left: 30),
+      padding: const EdgeInsets.only(bottom: 30.0, left: 30, right: 30),
       child: AnimatedFlex(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,

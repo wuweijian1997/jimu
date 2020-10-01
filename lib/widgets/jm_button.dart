@@ -64,9 +64,6 @@ class JmLoginButton extends StatelessWidget {
                   .headline6
                   .copyWith(letterSpacing: 2, color: Colors.white54),
             ),
-            SizedBox(
-              height: 30,
-            ),
           ],
         )
     );

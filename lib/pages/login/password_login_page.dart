@@ -109,16 +109,16 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
                       child: child,
                     );
                   },
-                  child: _PasswordInput(),
+                  child: _PasswordInput(editingController: _editingController, onSubmit: onSubmit,),
                 ),
               ],
             ),
-            JmLoginButton(
-              title: '开始积目',
-              onClick: () => onSubmit(_editingController.text),
-            ),
-            SizedBox(
-              height: 30,
+            Padding(
+              padding: EdgeInsets.only(bottom: 30),
+              child: JmLoginButton(
+                title: '开始积目',
+                onClick: () => onSubmit(_editingController.text),
+              ),
             ),
           ],
         ),

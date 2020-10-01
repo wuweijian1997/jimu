@@ -93,12 +93,12 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
                 ),
               ],
             ),
-            JmLoginButton(
-              title: '下一步',
-              onClick: () => onSubmit(_editingController.text),
-            ),
-            SizedBox(
-              height: 30,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: JmLoginButton(
+                title: '下一步',
+                onClick: () => onSubmit(_editingController.text),
+              ),
             ),
           ],
         ),
