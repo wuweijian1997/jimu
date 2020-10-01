@@ -35,6 +35,7 @@ class _StartupScreenPageState extends State<StartupScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: MediaQuery.removePadding(
         removeTop: true,
         context: context,

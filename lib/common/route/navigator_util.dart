@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/pages/index.dart';
 
 Widget _defaultTransitionsBuilder(
     BuildContext context,
@@ -14,6 +15,17 @@ class NavigatorUtil {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static get context => navigatorKey.currentContext;
+
+  static Route<dynamic> onGenerateRoute(RouteSettings setting) {
+    Log.info('routeName: ${setting.name}', StackTrace.current);
+    if (setting.name == PasswordLoginPage.rName) {
+      return CupertinoPageRoute(builder: (ctx) {
+        final phoneModel = setting.arguments as PhoneModel;
+        return PasswordLoginPage(phoneModel: phoneModel,);
+      });
+    }
+    return null;
+  }
 
   static pushNamedAndRemoveUntil(String newRouteName, {arguments}) {
     return Navigator.of(context).pushNamedAndRemoveUntil(
@@ -43,7 +55,7 @@ class NavigatorUtil {
       {WidgetBuilder builder, Object arguments, bool fullscreenDialog = false}) {
     return Navigator.of(context).push(CupertinoPageRoute(
       builder: builder ?? AppRoutes.configRoutes[routeName],
-      settings: RouteSettings(name: routeName),
+      settings: RouteSettings(name: routeName, arguments: arguments),
       fullscreenDialog: fullscreenDialog,
     ));
   }

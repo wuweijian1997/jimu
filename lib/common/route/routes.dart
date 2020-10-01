@@ -8,5 +8,6 @@ class AppRoutes {
     StartupScreenPage.rName: (context) => StartupScreenPage(),
     LoginPage.rName: (context) => LoginPage(),
     RegisterPage.rName: (context) => RegisterPage(),
+    PasswordLoginPage.rName: (context) => PasswordLoginPage(),
   };
 }

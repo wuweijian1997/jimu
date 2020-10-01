@@ -32,14 +32,14 @@ class AppTheme {
   static final TextTheme _textTheme = TextTheme(
     headline1: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 28.0, color: Colors.white),
     headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0, color: Colors.white),
-    caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0, color: Colors.white),
     headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0, color: Colors.white),
-    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0, color: Colors.white),
-    overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0, color: Colors.white),
-    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0, color: Colors.white),
-    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0, color: Colors.white),
-    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0, color: Colors.white),
     headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0, color: Colors.white),
+    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 20.0, color: Colors.white),
+    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0, color: Colors.white),
+    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0, color: Colors.white),
+    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0, color: Colors.white),
+    overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0, color: Colors.white),
+    caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0, color: Colors.white),
     button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0, color: Colors.white),
   );
 }

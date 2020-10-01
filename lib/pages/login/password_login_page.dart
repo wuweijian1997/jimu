@@ -2,17 +2,20 @@ import 'package:animated_flex/animated_flex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:jimu/common/index.dart';
-import 'package:jimu/pages/index.dart';
 import 'package:jimu/widgets/index.dart';
 
-class RegisterPage extends StatefulWidget {
-  static const rName = 'register';
+class PasswordLoginPage extends StatefulWidget {
+  static const String rName = "passwordLogPage";
+  final PhoneModel phoneModel;
+
+  PasswordLoginPage({@required this.phoneModel});
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _PasswordLoginPageState createState() => _PasswordLoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderStateMixin{
+class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTickerProviderStateMixin{
+
   TextEditingController _editingController;
   AnimationController _animationController;
 
@@ -35,17 +38,21 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
         value: 0, lowerBound: -50, upperBound: 50, vsync: this);
   }
 
+  String get areaCode => widget.phoneModel.areaCode;
+
+  String get phoneNumber => widget.phoneModel.phoneNumber;
+
   onSubmit(String value) {
     if(value.length == 11) {
-      NavigatorUtil.pushName(PasswordLoginPage.rName, builder: (_) {
-        return PasswordLoginPage(phoneModel: PhoneModel(phoneNumber: value, areaCode: '86'),);
-      });
+      ///去下一个页面
+      NavigatorUtil.pushName(PasswordLoginPage.rName, arguments: PhoneModel(phoneNumber: value, areaCode: '86'));
     } else {
       ///提示错误
       final simulation = SpringSimulation(_spring, 0, 0, 300);
       _animationController.animateWith(simulation);
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +69,30 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '登录/注册 更精彩',
+                  '账号登录',
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    ClipOval(
+                        child: Container(
+                      width: 10,
+                      height: 10,
+                      color: Colors.white,
+                          padding: EdgeInsets.only(right: 5),
+                    )),
+                    SizedBox(width: 10,),
+                    Text('+$areaCode $phoneNumber', style: Theme.of(context).textTheme.subtitle1,),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Text(
-                  '输入手机号后,开始积目!未注册手机,将自动进入注册页面',
+                  '输入密码后请点击"开始JiMu"即刻进入积目世界!粗心的你如忘记密码,请点击右上角的"忘"重新设置~',
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1

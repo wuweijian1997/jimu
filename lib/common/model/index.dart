@@ -1,0 +1,1 @@
+export 'phone_model.dart';

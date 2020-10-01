@@ -22,11 +22,13 @@ class MyApp extends StatelessWidget {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return MaterialApp(
       title: 'JiMu',
-      navigatorKey: NavigatorUtil.navigatorKey,
-      initialRoute: AppRoutes.INITIAL_ROUTE,
-      debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       routes: AppRoutes.configRoutes,
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.INITIAL_ROUTE,
+      navigatorKey: NavigatorUtil.navigatorKey,
+      ///命名路由传参方式
+      onGenerateRoute: NavigatorUtil.onGenerateRoute,
     );
   }
 }
