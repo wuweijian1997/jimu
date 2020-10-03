@@ -37,8 +37,12 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
 
   onSubmit(String value) {
     if(value.length == 11) {
-      NavigatorUtil.pushName(PasswordLoginPage.rName, builder: (_) {
-        return PasswordLoginPage(phoneModel: PhoneModel(phoneNumber: value, areaCode: '86'),);
+      ToastUtil.showLoading(context: context);
+      Future.delayed(Duration(milliseconds: 1000), (){
+        ToastUtil.hiddenLoading();
+        NavigatorUtil.pushName(PasswordLoginPage.rName, builder: (_) {
+          return PasswordLoginPage(phoneModel: PhoneModel(phoneNumber: value, areaCode: '86'),);
+        });
       });
     } else {
       ///提示错误
