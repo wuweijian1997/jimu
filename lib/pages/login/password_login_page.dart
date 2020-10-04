@@ -2,6 +2,7 @@ import 'package:animated_flex/animated_flex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:jimu/common/index.dart';
+import 'package:jimu/pages/home/home_page.dart';
 import 'package:jimu/widgets/index.dart';
 
 class PasswordLoginPage extends StatefulWidget {
@@ -43,9 +44,9 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
   String get phoneNumber => widget.phoneModel.phoneNumber;
 
   onSubmit(String value) {
-    if(value.length == 11) {
+    if(value.length >=   6) {
       ///去下一个页面
-      NavigatorUtil.pushName(PasswordLoginPage.rName, arguments: PhoneModel(phoneNumber: value, areaCode: '86'));
+      NavigatorUtil.transitionsPushAndRemoveUntil(HomePage.rName);
     } else {
       ///提示错误
       final simulation = SpringSimulation(_spring, 0, 0, 300);

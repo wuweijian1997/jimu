@@ -47,6 +47,12 @@ class _LoginVideoBgState extends State<_LoginVideoBg> {
   Widget build(BuildContext context) {
     return VideoPlayer(_videoController);
   }
+
+  @override
+  void dispose() {
+    _videoController.dispose();
+    super.dispose();
+  }
 }
 
 class _LoginContent extends StatelessWidget {
