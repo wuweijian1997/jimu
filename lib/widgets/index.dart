@@ -1,3 +1,4 @@
-export 'jm_button.dart';
-export 'jm_phone_number_input.dart';
-export 'jm_common_widget.dart';
+export 'button.dart';
+export 'phone_number_input.dart';
+export 'common_widget.dart';
+export 'card_swipe.dart';

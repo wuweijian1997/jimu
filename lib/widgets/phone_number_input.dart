@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:jimu/common/index.dart';
 import 'package:jimu/widgets/index.dart';
 
-class JmPhoneNumberInput extends StatefulWidget {
+class PhoneNumberInput extends StatefulWidget {
   final TextEditingController controller;
   final ValueChanged<String> valueChanged;
   final ValueChanged<String> onSubmit;
 
-  JmPhoneNumberInput({this.controller, this.valueChanged, this.onSubmit});
+  PhoneNumberInput({this.controller, this.valueChanged, this.onSubmit});
 
   @override
-  _JmPhoneNumberInputState createState() => _JmPhoneNumberInputState();
+  _PhoneNumberInputState createState() => _PhoneNumberInputState();
 }
 
-class _JmPhoneNumberInputState extends State<JmPhoneNumberInput> {
+class _PhoneNumberInputState extends State<PhoneNumberInput> {
   TextEditingController _editingController;
   bool _showClearIcon = false;
 

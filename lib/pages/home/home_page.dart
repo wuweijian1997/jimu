@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:jimu/common/index.dart';
 import 'package:jimu/pages/index.dart';
 import 'package:jimu/widgets/index.dart';
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -74,7 +76,7 @@ class _HomeBottomNavigationBar extends StatelessWidget {
     List<Widget> list = [];
     for (int i = 0; i < Const.bottomNavigationBar.length; i++) {
       var model = Const.bottomNavigationBar[i];
-      var child = JmButton(
+      var child = Button(
           onClick: () => onSelected(i),
           child: _BottomNavigationBarItem(
             model: model,

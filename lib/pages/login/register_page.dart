@@ -90,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
                       child: child,
                     );
                   },
-                  child: JmPhoneNumberInput(
+                  child: PhoneNumberInput(
                     controller: _editingController,
                     onSubmit: onSubmit,
                   ),
@@ -99,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
-              child: JmLoginButton(
+              child: LoginButton(
                 title: '下一步',
                 onClick: () => onSubmit(_editingController.text),
               ),
@@ -108,5 +108,12 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _editingController.dispose();
+    super.dispose();
   }
 }

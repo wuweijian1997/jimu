@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class JmButton extends StatefulWidget {
+class Button extends StatefulWidget {
   final VoidCallback onClick;
   final Duration delayed;
   final Widget child;
 
-  const JmButton({
+  const Button({
     @required this.onClick,
     @required this.child,
     this.delayed = const Duration(milliseconds: 300)
   });
 
   @override
-  _JmButtonState createState() => _JmButtonState();
+  _ButtonState createState() => _ButtonState();
 }
 
-class _JmButtonState extends State<JmButton> {
+class _ButtonState extends State<Button> {
   bool _isBlock = false;
 
   VoidCallback get onClick => widget.onClick;
@@ -43,15 +43,15 @@ class _JmButtonState extends State<JmButton> {
   }
 }
 
-class JmLoginButton extends StatelessWidget {
+class LoginButton extends StatelessWidget {
   final String title;
   final VoidCallback onClick;
 
-  JmLoginButton({@required this.title, this.onClick});
+  LoginButton({@required this.title, this.onClick});
 
   @override
   Widget build(BuildContext context) {
-    return JmButton(
+    return Button(
         onClick: onClick,
         child: Column(
           mainAxisSize: MainAxisSize.min,

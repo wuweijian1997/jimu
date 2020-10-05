@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///对话
 class DialoguePage extends StatelessWidget {
   static const rName = 'DialoguePage';
 

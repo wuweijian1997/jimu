@@ -116,7 +116,7 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 30),
-              child: JmLoginButton(
+              child: LoginButton(
                 title: '开始积目',
                 onClick: () => onSubmit(_editingController.text),
               ),
@@ -125,6 +125,13 @@ class _PasswordLoginPageState extends State<PasswordLoginPage> with SingleTicker
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _editingController.dispose();
+    super.dispose();
   }
 }
 

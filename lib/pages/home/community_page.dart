@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///社区
 class CommunityPage extends StatelessWidget {
   static const rName = 'CommunityPage';
 
