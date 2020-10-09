@@ -16,6 +16,8 @@ class NavigatorUtil {
 
   static get context => navigatorKey.currentContext;
 
+  static NavigatorState get currentState => navigatorKey.currentState;
+
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     Log.info('routeName: ${setting.name}', StackTrace.current);
     if (setting.name == PasswordLoginPage.rName) {

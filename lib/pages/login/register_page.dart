@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
 
   onSubmit(String value) {
     if(value.length == 11) {
-      ToastUtil.showLoading(context: context);
+      ToastUtil.showLoading();
       Future.delayed(Duration(milliseconds: 1000), (){
         ToastUtil.hiddenLoading();
         NavigatorUtil.pushName(PasswordLoginPage.rName, builder: (_) {

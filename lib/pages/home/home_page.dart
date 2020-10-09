@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jimu/common/index.dart';
@@ -32,6 +34,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           IndexedStack(
             index: bottomBarIndex,
+            sizing: StackFit.expand,
             children: [
               const DialoguePage(),
               const CommunityPage(),
@@ -63,11 +66,17 @@ class _HomeBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: buildList(),
+    double radius = selected == 2 ? 40.0 : 0.0;
+    return PhysicalShape(
+      color: AppTheme.THEME_COLOR,
+      elevation: 16.0,
+      clipper: _TabClipper(radius: radius),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0, top: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: buildList(),
+        ),
       ),
     );
   }
@@ -103,5 +112,46 @@ class _BottomNavigationBarItem extends StatelessWidget {
         Text(model.title, style: Theme.of(context).textTheme.overline,),
       ],
     );
+  }
+}
+
+//Tab 中间凸形裁剪
+class _TabClipper extends CustomClipper<Path> {
+  _TabClipper({@required this.radius});
+
+  final double radius;
+
+  @override
+  Path getClip(Size size) {
+    final Path path = Path();
+
+    final double v = radius * 2;
+    final top = min(-v / 2 + 20, 0.0);
+    print('top:$top, v:$v');
+    ///左上角
+    path.lineTo(0, 0);
+    /// -80 / 2 + 20
+    path.arcTo(Rect.fromLTWH((size.width / 2) - v / 2, top, v, v),
+        degreeToRadians(210), degreeToRadians(120), false);
+
+    ///右上角
+    path.lineTo(size.width, 0);
+
+    ///右下角
+    path.lineTo(size.width, size.height);
+
+    ///左下角
+    path.lineTo(0, size.height);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(_TabClipper oldClipper) => true;
+
+  double degreeToRadians(double degree) {
+    final double redian = (pi / 180) * degree;
+    return redian;
   }
 }

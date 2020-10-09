@@ -8,8 +8,11 @@ class DialoguePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(rName),
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: Text(rName),
+      ),
     );
   }
 }
