@@ -54,6 +54,15 @@ flutter:
   assets:
     - assets/videos/start_video.mp4
     - assets/images/icon_splash_content.png
+    - assets/images/rem/rem00.jpg
+    - assets/images/rem/rem01.jpg
+    - assets/images/rem/rem02.jpg
+    - assets/images/rem/rem03.jpg
+    - assets/images/rem/rem04.jpg
+    - assets/images/rem/rem05.jpg
+    - assets/images/rem/rem06.jpg
+    - assets/images/rem/rem07.jpg
+    - assets/images/rem/rem08.jpg
     - assets/images/home/bottom_navigation/navigation_community_selected.png
     - assets/images/home/bottom_navigation/navigation_community_unselected.png
     - assets/images/home/bottom_navigation/navigation_find_white_border.png
@@ -65,6 +74,7 @@ flutter:
     - assets/images/home/bottom_navigation/navigation_soul_unselected.png
     - assets/images/home/bottom_navigation/navigation_voice_match_selected.png
     - assets/images/home/bottom_navigation/navigation_voice_match_unselected.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

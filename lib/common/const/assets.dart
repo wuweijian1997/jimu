@@ -14,6 +14,18 @@ class Assets {
 	static const icon_splash_content = 'assets/images/icon_splash_content.png';
 
 
+	///./assets/images/rem
+	static const rem00 = 'assets/images/rem/rem00.jpg';
+	static const rem01 = 'assets/images/rem/rem01.jpg';
+	static const rem02 = 'assets/images/rem/rem02.jpg';
+	static const rem03 = 'assets/images/rem/rem03.jpg';
+	static const rem04 = 'assets/images/rem/rem04.jpg';
+	static const rem05 = 'assets/images/rem/rem05.jpg';
+	static const rem06 = 'assets/images/rem/rem06.jpg';
+	static const rem07 = 'assets/images/rem/rem07.jpg';
+	static const rem08 = 'assets/images/rem/rem08.jpg';
+
+
 	///./assets/images/home
 
 
@@ -36,6 +48,15 @@ class Assets {
 /*
 - assets/videos/start_video.mp4
 - assets/images/icon_splash_content.png
+- assets/images/rem/rem00.jpg
+- assets/images/rem/rem01.jpg
+- assets/images/rem/rem02.jpg
+- assets/images/rem/rem03.jpg
+- assets/images/rem/rem04.jpg
+- assets/images/rem/rem05.jpg
+- assets/images/rem/rem06.jpg
+- assets/images/rem/rem07.jpg
+- assets/images/rem/rem08.jpg
 - assets/images/home/bottom_navigation/navigation_community_selected.png
 - assets/images/home/bottom_navigation/navigation_community_unselected.png
 - assets/images/home/bottom_navigation/navigation_find_white_border.png
